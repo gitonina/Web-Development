@@ -1,0 +1,21 @@
+{
+    "get_user_by_id": "SELECT id FROM artesano WHERE nombre=%s;",
+    "get_artesano_by_email": "SELECT id, comuna_id, descripcion_artesania, nombre, email,celular FROM artesano WHERE email=%s;",
+    "get_artesano_by_username": "SELECT nombre FROM artesano WHERE nombre=%s;",
+    "get_artesano_by_comuna": "SELECT id FROM comuna WHERE nombre=%s;",
+    "get_artesanos": "SELECT * FROM artesano LIMIT %s OFFSET %s ",
+    "get_artesania_id":"SELECT id FROM tipo_artesania WHERE nombre=%s",
+    "get_total":"SELECT COUNT(*) AS total FROM artesano",
+    "get_fotos":"SELECT artesano.id,artesano.nombre,celular,comuna.nombre AS comuna,tipo_artesania.nombre AS tipoartesania ,nombre_archivo FROM artesano,foto,comuna,artesano_tipo,tipo_artesania WHERE foto.artesano_id=artesano.id and comuna.id=artesano.comuna_id and artesano_tipo.artesano_id= artesano.id and artesano_tipo.tipo_artesania_id=tipo_artesania.id  ORDER BY artesano.id ASC LIMIT %s OFFSET %s", 
+    "get_info_artesano":"SELECT artesano.nombre,region.nombre,tipo_artesania.nombre AS tipoartesania,nombre_archivo,email,celular FROM artesano,foto,comuna,artesano_tipo,tipo_artesania,region WHERE foto.artesano_id=artesano.id and comuna.id=artesano.comuna_id and artesano_tipo.artesano_id= artesano.id and artesano_tipo.tipo_artesania_id=tipo_artesania.id and comuna.region_id=region.id and artesano.id=%s   ORDER BY artesano.id ASC",
+
+
+
+    "create_artesano": "INSERT INTO artesano ( comuna_id,descripcion_artesania, nombre, email, celular) VALUES (%s,%s,%s,%s,%s)",
+    "create_foto": "INSERT INTO foto (ruta_archivo, nombre_archivo, artesano_id) VALUES (%s,%s,%s)",
+    "create-region": "INSERT INTO region (id, nombre) VALUES (%s,%s);",
+    "create-comuna":"INSERT INTO comuna (region_id, id, nombre) VALUES (%s, %s, %s);" ,
+    "create_artesano_tipo":"INSERT INTO artesano_tipo (artesano_id,tipo_artesania_id) VALUES (%s,%s)"
+     
+
+}

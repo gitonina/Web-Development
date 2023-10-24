@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de los artesanos</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename ='css/custom_paginate.css') }}" />
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+</head>
+
+
+<body>
+    
+
+
+    <header style="background-color: aliceblue;">
+
+        <h1>Listados artesanos  </h1>
+        <h3> Vea aqui las personas registradas como artesanos en nuestra pagina </h3>
+     
+        <a href="">Home</a>  
+        <a href="">About Us </a>
+        <a href="">Products</a>
+        <a href="">Contact Us</a>
+        <hr>
+        </header>
+    <h3> Artesanos</h3>
+ 
+  
+    <table border="3" style="background-color: black;">
+       
+    <thead> 
+     
+     <tr style="background-color: aliceblue;"> 
+
+      <td>Nombre</td>
+      <td> Telefono</td>
+      <td> Comuna</td>
+      <td> Tipo artesanias </td>
+      <td> Fotos</td>
+
+     </tr>
+    </thead>
+   
+    
+      <tbody> 
+ 
+      {% for foto in fotos  %}
+     
+      <tr style="background-color: aliceblue;"> 
+        
+     <td> {{foto.1 }}</td> 
+     <td> {{foto.2 }}  </td>
+     <td> {{foto.3 }}   </td>
+     <td> {{foto.4 }}   </td>
+     <td> <img src="{{ url_for('static', filename='uploads/' + foto.5) }}" width="150"> </td>
+     
+     <td> <a href="{{ url_for('infoartesano', artesano_id=foto.0) }}">Ver detalles</a></td>
+
+    </tr>   
+ 
+ 
+      {% endfor %}
+   
+     
+    </tbody>
+ 
+
+
+    </table>
+     
+
+   <br>
+   
+   <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <span>
+        {{ pagination.info }}
+        <hr />
+      </span>
+      {{ pagination.links }}
+    </div>
+  </div>
+
+
+    <a href="/"> 
+        <button style="background-color:cyan; border: solid;"> Volver al inicio</button>
+         </a>
+</body>
+
+
+</html>

@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar artesano
+    </title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+</head>
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+{% endblock %}
+
+<body>
+
+    <div id="val-box" hidden>
+    <h2 id="val-msg"></h2>
+    <ul id="val-list"></ul>
+
+
+    </div>
+
+   
+
+    
+    <form name="myForm" method="post" enctype="multipart/form-data" action="/agregarartesano"> 
+   
+   
+        <header style="background-color: aliceblue;">
+
+   
+   
+    
+   
+   <h1>Agregar artesano  </h1>
+   <h3> Ingrese todo lo que se especifica en esta pagina. </h3>
+
+   <a href="">Home</a>  
+   <a href="">About Us </a>
+   <a href="">Products</a>
+   <a href="">Contact Us</a>
+   <hr>
+   </header>
+
+    
+
+   <main><br> 
+    <label for="Región"> Region donde vive:</label>
+    <select id="alimento" name="Region" onchange="cargaTipo()">
+     <option value="seleccione" selected>seleccione</option>
+     <option value="Arica y Parinacota">Arica y Parinacota</option>
+     <option value="Tarapaca">Tarapaca</option>
+     <option value="Antofagasta">Antofagasta</option>
+     <option value="Atacama">Atacama</option>
+     <option value="Coquimbo">Coquimbo</option>
+     <option value="Valparaiso">Valparaiso</option>
+     <option value="Metropolitana">Metropolitana</option>
+     <option value="Libertador Bernardo Ohiggins">Libertador Bernardo Ohiggins</option>
+     <option value="Maule">Maule</option>
+     <option value="Ñuble">Ñuble</option>
+     <option value="Biobio">Biobio</option>
+     <option value="La Araucania">La Araucania</option>
+     <option value="Los Rios">Los Rios</option>
+     <option value="Los Lagos">Los Lagos</option>
+     <option value="Aysen">Aysen</option>
+     <option value="Magallanes y de la Antartica Chilena">Magallanes y de la Antartica Chilena</option>
+   </select>
+   <select id="tipoAlimento" name="comuna">
+   </select><br>
+    
+
+  
+
+     <br>
+
+
+
+     <label for="Tipo artesania"> Tipo artesania: </label>
+     
+     <select id="artesania" name="artesanias" multiple >
+
+     
+     <option value="marmol">marmol </option>
+     <option value="madera">madera</option>
+     <option value="ceramica">ceramica</option>
+     <option value="mimbre">mimbre</option>
+     <option value="metal">metal</option>
+     <option value="cuero">cuero</option>
+     <option value="telas">telas</option>
+     <option value="joyas">joyas</option>
+     <option value="otro tipo">otro tipo</option>
+
+
+     </select>
+    
+
+
+
+    
+
+
+    <br> 
+     <br>
+    
+    <label for="descripción">descripción artesanias  </label><br>  
+    <textarea rows="4" cols="50" name="descripción">  </textarea><br>
+   
+    
+
+     <br>
+    <label for="fotos">Fotos artesanias</label>
+    <input type="file" name="files" id="files" multiple accept="image/*" required> <br> 
+  
+    
+    <br>
+
+
+    <label for="username"> Nombre:</label>  
+    <input type="text" id="username"minlength="3" required maxlength="80" name="username"><br>
+    <br>
+     
+
+    <label for="email"> Email contacto artesano(a)</label>
+    <input type="email" id="email" name="email" placeholder="example@gmail.com"  required><br>
+
+    
+    <br>
+    
+    <label for="phone">Numero celular contacto:</label>
+    <input type="tel" id="phone" name="phone"placeholder="+569 12345678" maxlength="15"><br>
+
+  
+    
+
+
+   <button id="submit-btn" type="button"> Registrar artesano</button>
+
+   <dialog id="modal">
+    <h2> ¿Confirma el registro de este hincha?</h2>
+     
+    <button id="confirmar">Si, confirmo </button>
+    
+    <button id="btn-cerrar-modal">No, quiero volver al formulario </button>
+  </dialog>
+</main>
+{% block javascript %}
+<script src="{{ url_for('static', filename='js/validacionartesanos.js') }}"> </script>
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+
+<script>
+    new MultiSelectTag('artesania')  
+   
+</script>
+{% endblock %}
+
+</body>
+
+
+
+
+</html>
