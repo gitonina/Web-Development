@@ -31,7 +31,7 @@ Highcharts.chart("containerHincha", {
           enabled: true,
           radius: 4,
         },
-        color: "#5FC26B", // Puedes elegir un color diferente
+        color: "#5FC26B", 
       },
     ],
   });
