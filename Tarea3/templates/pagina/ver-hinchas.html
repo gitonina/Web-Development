@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de los hinchas</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename ='css/custom_paginate.css') }}" />
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+</head>
+
+
+<body>
+    
+
+
+    <header style="background-color: aliceblue;">
+
+        <h1>Listados hinchas  </h1>
+        <h3> Vea aqui las personas registradas como hincha en nuestra pagina </h3>
+     
+        <a href="">Home</a>  
+        <a href="">About Us </a>
+        <a href="">Products</a>
+        <a href="">Contact Us</a>
+        <hr>
+        </header>
+    <h3> Hinchas</h3>
+
+
+        
+    <table border="3" style="background-color: black;">
+       
+      <thead> 
+       
+       <tr style="background-color: aliceblue;"> 
+  
+        <td>Nombre</td>
+        <td> Comuna</td>
+        <td> Deportes</td>
+        <td> Modo Transporte </td>
+        <td> Numero celular</td>
+  
+       </tr>
+      </thead>
+     
+      
+        <tbody> 
+   
+        {% for hincha in datahincha  %}
+       
+        <tr style="background-color: aliceblue;"> 
+          
+       <td> {{hincha.1 }}</td> 
+       <td> {{hincha.2 }}  </td>
+       <td> {{hincha.3 }}   </td>
+       <td> {{hincha.4 }}   </td>
+       <td> {{hincha.5 }}   </td>
+       <td> <a href="{{ url_for('infohincha', hincha_id=hincha.0) }}">Ver detalles</a> </td>
+     
+  
+       
+  
+      </tr>   
+   
+   
+        {% endfor %}
+     
+       
+      </tbody>
+   
+  
+  
+      </table>
+
+    <br>
+
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <span>
+            {{ pagination.info }}
+            <hr />
+          </span>
+          {{ pagination.links }}
+        </div>
+      </div>
+
+
+     <a href="/">
+    <button style="background-color:cyan; border: solid;"> Volver al inicio</button>
+     </a>
+
+</body>
+
+
+</html>

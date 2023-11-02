@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+</head>
+<body>
+<header>
+  <h1 style="background-color: aliceblue;"> Información artesano</h1>
+    <hr>
+</header>
+
+
+<main>
+  <big> Nombre:{{ artesano_info[0] }} </big><br>
+  <br>
+
+  <big> Region: {{ artesano_info[1] }}</big><br>
+  <br>
+
+  <big> Tipo artesania: {{ artesano_info[2] }}</big><br>
+  <br>
+
+  <big> Fotos artesanias:  </big><br> 
+
+  <img src="{{ url_for('static', filename='uploads/' + artesano_info[3]) }}">
+
+  <br>
+
+  <big> Email de contacto: {{ artesano_info[4] }}</big><br>
+  <br>
+
+  <big> Numero de celular de contacto: {{ artesano_info[5] }}</big>
+
+
+
+
+</main><br>
+
+<a href="/listadoartesanos">
+  <button style="background-color:cyan; border: solid;"> Volver al listado de artesanos</button>
+   </a>
+</body>
+</html>

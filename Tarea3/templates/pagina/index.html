@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Panamericanos</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+
+</head>
+
+
+
+<body>
+
+
+<header  style="background-color: aliceblue;">
+<h1> Juegos Panamericanos en Chile </h1>
+<a href="">Home</a>  
+<a href="">About Us </a>
+<a href="">Products</a>
+<a href="">Contact Us</a>
+<a href="/stats">Stats </a>
+<hr>
+</header>
+
+
+<main> 
+ <a href="/agregarhincha">
+<button style="font-size: 25px; background-color: aqua;color: blue;border-radius:20px; color: black ;">Registrar Hincha </button><br>
+</a>
+
+<br>
+
+
+<a href="agregarartesano"> 
+<button style="font-size: 25px; background-color: aqua;color: blue;border-radius:20px;color: black;">Registrar Artesano </button><br>
+</a>
+
+<br>
+
+
+<a href="listadohinchas">
+<button style="font-size: 25px; background-color: aqua;color: blue;border-radius:20px;color: black;">Ver listado de hinchas </button><br>
+</a>
+
+<br>
+
+<a href="listadoartesanos">
+<button style="font-size: 25px; background-color: aqua;color: blue;border-radius:20px;color: black;">Ver listado de artesanos </button>
+</a>
+
+</main>
+
+  <br>
+
+<img src="{{ url_for('static', filename='svg/Santiago2023.png') }}">
+<br>
+
+
+<footer>&copy; copyrights reserved <br></footer>
+
+
+
+</body> 
+
+
+
+
+
+</html>

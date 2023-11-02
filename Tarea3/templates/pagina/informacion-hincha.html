@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+</head>
+<body>
+    <header>
+   <h1 style="background-color: aliceblue;"> Información hincha</h1>
+   <hr>
+    </header>
+   
+  <br>  
+    
+    <main> 
+     <big> Nombre: {{ hincha_info[0] }}</big><br>
+      <br>
+
+     <big> Deportes que le interesan: {{ hincha_info[1] }} </big><br>
+     <br>
+
+     <big>Región donde vive:  {{ hincha_info[2] }}</big><br>
+     <br>
+
+     <big>Comuna donde vive:  {{ hincha_info[3] }}</big><br>
+     <br>
+
+     <big> Modo de transporte:  {{ hincha_info[4] }}</big><br>
+     <br>
+     
+     <big> Email de contacto:  {{ hincha_info[5] }}</big><br>
+     <br>
+    
+     <big> Numero de celular de contacto:  {{ hincha_info[6] }}</big><br>
+     <br>
+
+     <big> Comentarios adicionales: <textarea rows="3">  {{ hincha_info[7] }} </textarea></big>
+        
+    </main><br>
+
+    <a href="/listadohinchas">
+        <button style="background-color:cyan; border: solid;"> Volver al listado de hinchas</button>
+         </a>
+</body>
+</html>

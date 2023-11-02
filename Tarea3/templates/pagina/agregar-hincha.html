@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar hincha</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='svg/favicon1.jpg') }}"> 
+
+</head>
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+{% endblock %}
+<body>
+
+
+  <div id="val-box" hidden>
+    <h2 id="val-msg"></h2>
+    <ul id="val-list"></ul>
+
+
+    </div>
+  <form  name="myForm1" method="post" enctype="multipart/form-data"> 
+   <header style="background-color: aliceblue;">
+
+   <h1>Agregar hincha  </h1>
+   <h3> Ingrese todo lo que se especifica en esta pagina. </h3>
+
+   <a href="">Home</a>  
+   <a href="">About Us </a>
+   <a href="">Products</a>
+   <a href="">Contact Us</a>
+   <hr>
+   </header>
+
+    
+
+   <main><br>
+    <label for="deportes"> Seleccione el(los) deporte(s) que le interesa(n), al menos 1 y maximo 3 : </label>   
+    <select id="deporte"name="deportes" multiple> 
+        <option value="Clavados"> Clavados</option>
+        <option value="Natación">Natación</option>
+        <option value="Natación artistica">Natación artistica</option>
+        <option value="Polo acuatico">Polo acuatico</option>
+        <option value="Natación en Aguas abiertas">Natación en Aguas abiertas</option>
+        <option value="Maratón">Maratón</option>
+        <option value="Marcha">Marcha</option>
+        <option value="Atletismo">Atletismo</option>
+        <option value="Badminton">Badminton</option>
+        <option value="Balonmano">Balonmano</option>
+        <option value="Basquebol">Basquetbol</option>
+        <option value="Basquebol 3 por 3">Basquebol 3 por 3</option>
+        <option value="Beisbol">Beisbol</option>
+        <option value="Boxeo">Boxeo</option>
+        <option value="Bowling">Bowling</option>
+        <option value="Breaking">Breaking</option>
+        <option value="Canotaje de velocidad">Canotaje de velocidad</option>
+        <option value="BMX Freestyle">BMX Freestyle</option>
+        <option value="BMX Racing">BMX Racing</option>
+        <option value="Mountain Bike">Mountain Bike</option>
+        <option value="Ciclismo pista">Ciclismo pista</option>
+        <option value="Ciclismo ruta">Ciclismo ruta</option>
+        <option value="Adiestramiento ecuestre">Adiestramiento ecuestre</option>
+        <option value="Evento completo ecuestre">Evento completo ecuestre</option>
+        <option value="Salto ecuestre">Salto ecuestre</option>
+        <option value="Escalada deportiva"> Escalada deportiva</option>
+        <option value="Esgrima">Esgrima</option>
+        <option value="Esqui acuatico y Wakeboard">Esqui acuatico y Wakeboard</option>
+        <option value="Futbol">Futbol</option>
+        <option value="Gimnasia artistica Masculina">Gimnasia artistica Masculina</option>
+        <option value="Gimnasia artistica Femenina">Gimnasia artistica Femenina</option>
+        <option value="Gimanasia ritmica">Gimnasia ritmica</option>
+        <option value="Gimnasia trampolin">Gimnasia trampolin</option>
+        <option value="Golf">Golf</option>
+        <option value="Hockey cesped">Hockey cesped</option>
+        <option value="Judo">Judo</option>
+        <option value="Karate">Karate</option>
+        <option value="Levantamiento de pesas">Levantamiento de pesas</option>
+        <option value="Lucha">Lucha</option>
+        <option value="Patinaje artistico">Patinaje artistico</option>
+        <option value="Skateboarding">Skateboarding</option>
+        <option value="Patinake velocidad">Patinaje velocidad</option>
+        <option value="Pelota vasca">Pelota vasca</option>
+        <option value="Pentatoln moderno">Pentatlon moderno</option>
+        <option value="Racquetball">Racquetball</option>
+        <option value="Remo">Remo</option>
+        <option value="Rugby 7">Rugby 7</option>
+        <option value="Softbol">Softbol</option>
+        <option value="Squash">Squash</option>
+        <option value="Surf">Surf</option>
+        <option value="Taekwondo">Taekwondo</option>
+        <option value="Tenis">Tenis</option>
+        <option value="Tenis de mesa">Tenis de mesa</option>
+        <option value="Tiro">Tiro</option>
+        <option value="Triatlon">Triatlon</option>
+        <option value="Vela">Vela</option>
+        <option value="Voleibol">Voleibol</option>
+        <option value="Voleibol playa">Voleibol playa</option>
+      </select><br>
+   
+   <br>
+   
+   <label for="Región"> Region donde vive:</label>
+   <select id="alimento"   name="Region"  onchange="cargaTipo()">
+    <option value="seleccione" selected>seleccione</option>
+    <option value="Arica y Parinacota">Arica y Parinacota</option>
+    <option value="Tarapaca">Tarapaca</option>
+    <option value="Antofagasta">Antofagasta</option>
+    <option value="Atacama">Atacama</option>
+    <option value="Coquimbo">Coquimbo</option>
+    <option value="Valparaiso">Valparaiso</option>
+    <option value="Metropolitana">Metropolitana</option>
+    <option value="Libertador Bernardo Ohiggins">Libertador Bernardo Ohiggins</option>
+    <option value="Maule">Maule</option>
+    <option value="Ñuble">Ñuble</option>
+    <option value="Biobio">Biobio</option>
+    <option value="La Araucania">La Araucania</option>
+    <option value="Los Rios">Los Rios</option>
+    <option value="Los Lagos">Los Lagos</option>
+    <option value="Aysen">Aysen</option>
+    <option value="Magallanes y de la Antartica Chilena">Magallanes y de la Antartica Chilena</option>
+  </select>
+  <select id="tipoAlimento" name="comuna">
+  </select><br>
+    <br>
+    
+    
+  
+  
+
+     <br>
+       
+     <label for="Transporte"> Transporte: </label>
+     <select id="Transporte" name="Transporte"> 
+     <option value="particular">particular </option>
+     <option value="locomoción publica">locomoción publica</option>
+     
+     </select><br>
+
+     <div id="popup" hidden>
+      <h2 id="msg"> ¿Confirma el registro de este hincha?</h2>
+      <ul id="list"></ul>
+  
+  
+      </div>
+    <br> 
+   
+    <label for="username"> Nombre:</label>  
+    <input type="text" id="username"minlength="3"  maxlength="80" name="username">
+    </main>
+    
+     <br>
+    <label for="email">email</label>
+    <input type="email" id="email" placeholder="example@gmail.com" maxlength="30" name="email"><br>
+<br>
+
+    <label for="phone">Numero celular contacto:</label>
+    <input type="tel" id="phone" placeholder="+569 12345678" maxlength="15" name="phone"><br>
+
+  
+  <br>
+    <label for="Comentarios">Comentarios adicionales</label>
+    <textarea maxlength="80" name="comentario"> </textarea ><br>
+
+   <br>
+
+   <button id="submit-btn" type="button"> Registrar hincha</button><br>
+    <br>
+    
+   
+
+ <dialog id="modal">
+   <h2> ¿Confirma el registro de este hincha?</h2>
+    
+   <button id="confirmar">Si, confirmo </button>
+   
+   <button id="btn-cerrar-modal">No, quiero volver al formulario </button>
+ </dialog>
+  
+
+
+</main>
+{% block javascript %}
+ <script src="{{ url_for('static', filename='js/validacionhinchas.js') }}"> </script>
+ <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
+
+<script>
+    new MultiSelectTag('deporte')  
+   
+</script>
+{% endblock %}
+
+
+
+
+</body>
+
+
+
+
+</html>

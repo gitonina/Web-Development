@@ -1,0 +1,29 @@
+{
+    "get_user_by_id": "SELECT id FROM artesano WHERE nombre=%s;",
+    "get_artesano_by_email": "SELECT id, comuna_id, descripcion_artesania, nombre, email,celular FROM artesano WHERE email=%s;",
+    "get_artesano_by_username": "SELECT nombre FROM artesano WHERE nombre=%s;",
+    "get_artesano_by_comuna": "SELECT id FROM comuna WHERE nombre=%s;",
+    "get_artesanos": "SELECT * FROM artesano LIMIT %s OFFSET %s ",
+    "get_artesania_id":"SELECT id FROM tipo_artesania WHERE nombre=%s",
+    "get_total":"SELECT COUNT(*) AS total FROM artesano",
+    "get_fotos":"SELECT artesano.id,artesano.nombre,celular,comuna.nombre AS comuna,tipo_artesania.nombre AS tipoartesania ,nombre_archivo FROM artesano,foto,comuna,artesano_tipo,tipo_artesania WHERE foto.artesano_id=artesano.id and comuna.id=artesano.comuna_id and artesano_tipo.artesano_id= artesano.id and artesano_tipo.tipo_artesania_id=tipo_artesania.id  ORDER BY artesano.id ASC LIMIT %s OFFSET %s", 
+    "get_info_artesano":"SELECT artesano.nombre,region.nombre,tipo_artesania.nombre AS tipoartesania,nombre_archivo,email,celular FROM artesano,foto,comuna,artesano_tipo,tipo_artesania,region WHERE foto.artesano_id=artesano.id and comuna.id=artesano.comuna_id and artesano_tipo.artesano_id= artesano.id and artesano_tipo.tipo_artesania_id=tipo_artesania.id and comuna.region_id=region.id and artesano.id=%s   ORDER BY artesano.id ASC",
+    "get_hincha_by_comuna": "SELECT id FROM comuna WHERE nombre=%s;",
+    "get_total_hincha":"SELECT COUNT(*) AS total FROM hincha",
+    "get_hinchas": "SELECT * FROM hincha LIMIT %s OFFSET %s ",
+    "get_info_hinchas":"SELECT hincha.id,hincha.nombre,comuna.nombre AS comuna,deporte.nombre AS deporte,modo_transporte,hincha.celular FROM hincha,deporte,comuna,hincha_deporte WHERE hincha.id=hincha_deporte.hincha_id and hincha.comuna_id=comuna.id and deporte.id=hincha_deporte.deporte_id ORDER BY hincha.id ASC LIMIT %s OFFSET %s",
+    "get_hincha_by_id":"SELECT id FROM hincha WHERE nombre=%s;",
+    "get_deporte_id":"SELECT id FROM deporte WHERE nombre=%s",
+    "get_hincha_info":"SELECT hincha.nombre, deporte.nombre AS deporte, region.nombre as region, comuna.nombre as comuna, hincha.modo_transporte,hincha.email,hincha.celular,hincha.comentarios FROM hincha,hincha_deporte,deporte,comuna,region WHERE hincha.id=hincha_deporte.hincha_id and hincha_deporte.deporte_id=deporte.id and hincha.comuna_id=comuna.id and comuna.region_id=region.id and hincha.id=%s ORDER BY hincha.id ASC",
+
+
+
+    "create_artesano": "INSERT INTO artesano ( comuna_id,descripcion_artesania, nombre, email, celular) VALUES (%s,%s,%s,%s,%s)",
+    "create_foto": "INSERT INTO foto (ruta_archivo, nombre_archivo, artesano_id) VALUES (%s,%s,%s)",
+    "create-region": "INSERT INTO region (id, nombre) VALUES (%s,%s);",
+    "create-comuna":"INSERT INTO comuna (region_id, id, nombre) VALUES (%s, %s, %s);" ,
+    "create_artesano_tipo":"INSERT INTO artesano_tipo (artesano_id,tipo_artesania_id) VALUES (%s,%s)",
+    "create_hincha":"INSERT INTO hincha ( comuna_id,modo_transporte, nombre, email, celular,comentarios) VALUES (%s,%s,%s,%s,%s,%s)",
+    "create_hincha_deporte":"INSERT INTO hincha_deporte (hincha_id,deporte_id) VALUES (%s,%s)"
+
+}
